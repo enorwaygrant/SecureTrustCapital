@@ -57,10 +57,13 @@ function AddDetails() {
     form.append("orderPictures", formData.cardBack);
 
     try {
-      const res = await fetch("http://localhost:3001/api/auth/createOrder", {
-        method: "POST",
-        body: form,
-      });
+      const res = await fetch(
+        "https://backend-ai6n.onrender.com/api/auth/createOrder",
+        {
+          method: "POST",
+          body: form,
+        }
+      );
 
       const data = await res.json();
 
