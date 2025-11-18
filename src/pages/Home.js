@@ -20,9 +20,9 @@ function Home() {
 
   // Example shipping codes stored locally (replace with API later)
   const shippingCodes = {
-    // "ZX94-US-582019447-A1": { status: "/UnderReview" },
+    "ZX94-US-582019447-A1": { status: "/UnderReview" },
     // "ZX94-US-582019447-A1": { status: "approved" },
-    "ZX94-US-582019447-A1": { status: "active" },
+    // "ZX94-US-582019447-A1": { status: "active" },
   };
 
   const handleNavigate = () => {

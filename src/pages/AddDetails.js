@@ -5,6 +5,7 @@ import { toast, Toaster } from "react-hot-toast";
 function AddDetails() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     middleName: "",
@@ -35,6 +36,9 @@ function AddDetails() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Start loading
+    setSubmitting(true);
+
     // Validate Inputs
     if (!formData.firstName.trim())
       return toast.error("First name is required");
@@ -57,18 +61,17 @@ function AddDetails() {
     form.append("orderPictures", formData.cardBack);
 
     try {
-      const res = await fetch(
-        "https://backend-ai6n.onrender.com/api/auth/createOrder",
-        {
-          method: "POST",
-          body: form,
-        }
-      );
+      const res = await fetch("http://localhost:3001/api/auth/createOrder", {
+        method: "POST",
+        body: form,
+      });
 
       const data = await res.json();
 
       if (!res.ok) {
-        return toast.error(data.error || "Something went wrong");
+        toast.error(data.error || "Something went wrong");
+        setSubmitting(false);
+        return;
       }
 
       toast.success("Details submitted successfully!");
@@ -78,6 +81,7 @@ function AddDetails() {
     } catch (error) {
       console.log(error);
       toast.error("Network error");
+      setSubmitting(false);
     }
   };
 
@@ -232,9 +236,36 @@ function AddDetails() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow transition"
+                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow transition flex items-center justify-center"
+                disabled={submitting}
               >
-                Submit
+                {submitting ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5 mr-2 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 100 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z"
+                      ></path>
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </form>
           ) : (
