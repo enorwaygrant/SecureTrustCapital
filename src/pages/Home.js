@@ -234,6 +234,14 @@ const Home = () => {
     }
   };
 
+  // Handle footer link clicks
+  const handleFooterLinkClick = (e, section) => {
+    e.preventDefault();
+    // You can add navigation logic here
+    console.log(`Navigate to ${section}`);
+    // Example: navigate to different pages or scroll to sections
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white font-sans">
       {/* Header */}
@@ -723,52 +731,36 @@ const Home = () => {
               <h4 className="text-xl font-bold mb-6">Quick Links</h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("personal-loans")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Personal Loans
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("business-loans")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Business Loans
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("real-estate")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Real Estate Financing
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("loan-calculator")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Loan Calculator
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -777,52 +769,36 @@ const Home = () => {
               <h4 className="text-xl font-bold mb-6">Resources</h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("security")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Security Overview
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("faq")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     FAQ
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("rates")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Rates & Terms
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = "#";
-                    }}
-                    className="text-gray-400 hover:text-white transition cursor-pointer"
+                  <button
+                    onClick={() => handleFooterLinkClick("success-stories")}
+                    className="text-gray-400 hover:text-white transition cursor-pointer bg-transparent border-0 p-0 text-left"
                   >
                     Success Stories
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
