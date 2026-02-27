@@ -4,22 +4,16 @@ import {
   FaCheckCircle,
   FaStar,
   FaLock,
-  FaUserCircle,
-  FaPhoneAlt,
   FaHandHoldingUsd,
   FaChartLine,
   FaClock,
   FaBuilding,
-  FaUsers,
   FaGlobeAmericas,
   FaCertificate,
   FaMoneyBillWave,
   FaBalanceScale,
-  FaChartBar,
   FaAward,
   FaHandshake,
-  FaCreditCard,
-  FaMobileAlt,
   FaUserTie,
   FaHome,
   FaCar,
@@ -35,8 +29,7 @@ import ImgSeven from "../images/img7.jpeg";
 import ImgEight from "../images/img8.jpeg";
 import ImgNine from "../images/img9.jpg";
 
-// Import placeholder images for testimonials (in real app, you'd use real images)
-// These are placeholder URLs from a free placeholder service
+// Import placeholder images for testimonials
 const testimonialImages = {
   michael: ImgOne,
   sarah: ImgTwo,
@@ -232,6 +225,15 @@ const Home = () => {
     </div>
   );
 
+  // Smooth scroll function
+  const handleSmoothScroll = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white font-sans">
       {/* Header */}
@@ -256,16 +258,22 @@ const Home = () => {
               <nav className="flex space-x-6">
                 <a
                   href="#home"
-                  className="text-blue-700 font-semibold hover:text-blue-900"
+                  onClick={(e) => handleSmoothScroll(e, "home")}
+                  className="text-blue-700 font-semibold hover:text-blue-900 cursor-pointer"
                 >
                   Home
                 </a>
-                <a href="#loans" className="text-gray-700 hover:text-blue-900">
+                <a
+                  href="#loans"
+                  onClick={(e) => handleSmoothScroll(e, "loans")}
+                  className="text-gray-700 hover:text-blue-900 cursor-pointer"
+                >
                   Loan Types
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-gray-700 hover:text-blue-900"
+                  onClick={(e) => handleSmoothScroll(e, "testimonials")}
+                  className="text-gray-700 hover:text-blue-900 cursor-pointer"
                 >
                   Success Stories
                 </a>
@@ -717,7 +725,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Personal Loans
                   </a>
@@ -725,7 +737,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Business Loans
                   </a>
@@ -733,7 +749,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Real Estate Financing
                   </a>
@@ -741,7 +761,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Loan Calculator
                   </a>
@@ -755,7 +779,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Security Overview
                   </a>
@@ -763,7 +791,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     FAQ
                   </a>
@@ -771,7 +803,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Rates & Terms
                   </a>
@@ -779,7 +815,11 @@ const Home = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-white transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "#";
+                    }}
+                    className="text-gray-400 hover:text-white transition cursor-pointer"
                   >
                     Success Stories
                   </a>

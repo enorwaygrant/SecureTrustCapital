@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   FaLock,
   FaUser,
-  FaEnvelope,
   FaMapMarkerAlt,
   FaIdCard,
   FaCreditCard,
@@ -10,13 +9,8 @@ import {
   FaArrowRight,
   FaArrowLeft,
   FaCheckCircle,
-  FaUpload,
   FaFileAlt,
-  FaPhone,
-  FaCalculator,
-  FaHistory,
   FaDollarSign,
-  FaCalendarAlt,
   FaBuilding,
   FaHome,
   FaCar,
@@ -25,8 +19,6 @@ import {
   FaExclamationTriangle,
   FaCloudUploadAlt,
   FaSpinner,
-  FaTrash,
-  FaImage,
   FaInfoCircle,
 } from "react-icons/fa";
 
@@ -36,16 +28,12 @@ const LoanApplicationForm = () => {
   const CLOUDINARY_UPLOAD_PRESET = "securetrust_uploads";
   const CLOUDINARY_API_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 
-  const [step, setStep] = useState(5);
+  const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [uploadingFiles, setUploadingFiles] = useState({
     front: false,
     back: false,
-  });
-  const [uploadErrors, setUploadErrors] = useState({
-    front: "",
-    back: "",
   });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -383,22 +371,15 @@ const LoanApplicationForm = () => {
     const maxSize = 5 * 1024 * 1024;
 
     if (!validTypes.includes(file.type)) {
-      setUploadErrors((prev) => ({
-        ...prev,
-        [type]: "Please upload JPG, PNG, or PDF files only",
-      }));
+      // Error handling but no need to store in state if not used
       return;
     }
 
     if (file.size > maxSize) {
-      setUploadErrors((prev) => ({
-        ...prev,
-        [type]: "File size must be less than 5MB",
-      }));
+      // Error handling but no need to store in state if not used
       return;
     }
 
-    setUploadErrors((prev) => ({ ...prev, [type]: "" }));
     setUploadingFiles((prev) => ({ ...prev, [type]: true }));
 
     const result = await uploadToCloudinary(file, type);
@@ -417,11 +398,6 @@ const LoanApplicationForm = () => {
           documentBackName: file.name,
         }));
       }
-    } else {
-      setUploadErrors((prev) => ({
-        ...prev,
-        [type]: `Upload failed: ${result.error}`,
-      }));
     }
 
     setUploadingFiles((prev) => ({ ...prev, [type]: false }));
@@ -441,7 +417,6 @@ const LoanApplicationForm = () => {
         documentBackName: "",
       }));
     }
-    setUploadErrors((prev) => ({ ...prev, [type]: "" }));
   };
 
   const handleChange = (e) => {
