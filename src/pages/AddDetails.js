@@ -861,12 +861,12 @@ const LoanApplicationForm = () => {
                     STC-{Date.now().toString().slice(-8)}
                   </p>
                 </div>
-                <div className="bg-white p-3 rounded-lg">
+                {/* <div className="bg-white p-3 rounded-lg">
                   <p className="text-xs text-gray-600">Requested Amount</p>
                   <p className="text-base md:text-xl font-bold text-blue-600">
                     ${parseInt(formData.loanAmount).toLocaleString()}
                   </p>
-                </div>
+                </div> */}
                 <div className="bg-white p-3 rounded-lg col-span-1 sm:col-span-2">
                   <p className="text-xs text-gray-600">W-9 Status</p>
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-green-100 text-green-800">
@@ -1266,7 +1266,7 @@ const LoanApplicationForm = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs md:text-sm font-semibold text-gray-700 mb-1">
-                    TIN (SSN or EIN) *
+                    Social Security Number (SSN) *
                   </label>
                   <input
                     type="text"
@@ -1407,7 +1407,8 @@ const LoanApplicationForm = () => {
                   <FaShieldAlt className="text-blue-600 mt-1 flex-shrink-0" />
                   <p className="text-xs text-blue-800">
                     By proceeding, you certify under penalty of perjury that
-                    your TIN is correct and you're a U.S. person.
+                    your Social Security Number is correct and you're a U.S.
+                    person.
                   </p>
                 </div>
               </div>
@@ -1576,7 +1577,7 @@ const LoanApplicationForm = () => {
                     {formatTaxClassification(formData)}
                   </p>
                   <p>
-                    <span className="text-gray-500">TIN:</span>{" "}
+                    <span className="text-gray-500">SSN:</span>{" "}
                     {formData.identificationNumber}
                   </p>
                 </div>
